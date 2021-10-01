@@ -17,16 +17,16 @@
 * [GitHub](https://docs.github.com/en)
 
 ## Authors
-Isaac Cortes Hernandez
+* Isaac Cortes Hernandez
   * [Github](https://github.com/icortes)
   * [LinkedIn](https://www.linkedin.com/in/cortes-isaac/)
-George Sandoval
+* George Sandoval
   * [Github](https://github.com/gsandoval09)
   * [LinkedIn](https://www.linkedin.com/in/george-sandoval-4467641b3/)
-Joel Samuel
+* Joel Samuel
   * [Github]()
   * [LinkedIn]()
-Sarah Hollingsworth
+* Sarah Hollingsworth
   * [Github](https://github.com/sahhollingsworth)
   * [LinkedIn](https://www.linkedin.com/in/sarahhollingsworth/)
 
