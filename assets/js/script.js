@@ -13,3 +13,14 @@ fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-popular-movies&
 .then(data => {
     console.log(data);
 });
+
+ombdkey = "726baba7";
+
+fetch("http://www.omdbapi.com/?apikey=" + ombdkey + "&i=tt1285016")
+.then(response => {
+    console.log(response);
+    return response.json();
+})
+.then(data => {
+    console.log(data);
+})
