@@ -70,6 +70,7 @@ function getMediaInfo(imdbID) {
 function storeToLocalStorage(obj){
 	//get local storage objects
 	var localStorageArray = JSON.parse(localStorage.getItem("myMediaList"));
+	console.log(localStorageArray);
 	//condition to check if localStorageArray is empty
 	if(localStorageArray === null){
 		//place object in array
@@ -81,29 +82,31 @@ function storeToLocalStorage(obj){
 		localStorageArray.push(obj);
 	}
 	//update local storage with updated array
-	localStorage.setItem("myMediaList", localStorageArray);
+	localStorage.setItem("myMediaList", JSON.stringify(localStorageArray));
 }
 
-getPopular("get-popular-movies", 2021);
+storeToLocalStorage("weeeeeeeeeeee");
 
-// Google books API fetch
-fetch(`https://www.googleapis.com/books/v1/volumes?q=cat&key=AIzaSyDtUUPKatgp-DpuXV5xxSYrWkT9DLYlIc8`)
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        console.log(data);
-    });
+//getPopular("get-popular-movies", 2021);
 
-// NYT Fetch API
-    fetch(`https://api.nytimes.com/svc/books/v3/lists/'2021-02-02'/hardcover-fiction.json&api-key=nchTYYEyH5NAeLwlhujlR0i0GgClzSsd`)
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        console.log(data);
-        console.log
-    });
+// // Google books API fetch
+// fetch(`https://www.googleapis.com/books/v1/volumes?q=cat&key=AIzaSyDtUUPKatgp-DpuXV5xxSYrWkT9DLYlIc8`)
+//     .then(function (response) {
+//         return response.json();
+//     })
+//     .then(function (data) {
+//         console.log(data);
+//     });
+
+// // NYT Fetch API
+//     fetch(`https://api.nytimes.com/svc/books/v3/lists/'2021-02-02'/hardcover-fiction.json&api-key=nchTYYEyH5NAeLwlhujlR0i0GgClzSsd`)
+//     .then(function (response) {
+//         return response.json();
+//     })
+//     .then(function (data) {
+//         console.log(data);
+//         console.log
+//     });
 
 // class book {
 //     constructor(title, author, releaseDate, description) {
