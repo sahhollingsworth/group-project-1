@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- style sheets -->
+    <!-- Reset style -->
     <link rel="stylesheet" href="assets/css/reset.css" />
     <!-- Bulma CSS library-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="~bulma-carousel/dist/css/bulma-carousel.min.css" >
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css">
+    <!-- App style-->
     <link rel="stylesheet" href="assets/css/style.css" />
-
     <!-- JQuery library -->
     <script
     src="https://code.jquery.com/jquery-3.6.0.slim.js"
     integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
     crossorigin="anonymous"></script>
-
+    <!-- Favicon -->
     <link rel= "shortcut icon" href="assets/images/nostalgia-generator_shortcut-icon.png"/>
     <title>Document</title>
 </head>
@@ -72,11 +72,13 @@
         </form>
         <section id="movies" class="carousel block column is-10 is-offset-1 has-background-grey-lighter">
             <h3 class="title is-3">TV Shows</h3>
-            <div class="carousel" data-slides-to-scroll="1" data-slides-to-show="6" data-navigation="true" data-loop="true">
-                <div class="card is-3"></div>
+            <!-- Carousel acts as the container -->
+            <div class="carousel" id="carousel">
+                <!-- carousel cards -->
+                <div class="card">
                     <!-- Poster image is top component of card, can further refine size -->
                     <div class="card-image" id="poster">
-                        <figure class="image is-4by3">
+                        <figure class="image">
                             <img src="#" alt="">
                         </figure>
                     </div>
@@ -85,33 +87,69 @@
                             <p class="title is-4" id="title">Title</p>
                             <p class="subtitle is-6" id="release-date">Release Date</p>
                         </div>
-                        <div class="content" id="synopsis">lorem ipsum
+                        <div class="content" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </div>
                     </div>    
                     <footer class="card-footer">
                         <a href="#" class="card-footer-item">Add to My List</a>
                         <a href="#" class="card-footer-item">More Info</a>
                     </footer>
-            </div>
+                </div>
         </section>
         <section id="tvshows" class="carousel block column is-10 is-offset-1 has-background-grey-lighter">
             <h3 class="title is-3">Movies</h3>
-            <div class="carousel" data-slides-to-scroll="1" data-slides-to-show="6" data-navigation="true" data-loop="true">
+            <!-- Carousel acts as the container -->
+            <div class="carousel" id="carousel">
+                <!-- carousel cards -->
                 <div class="card">
-                
+                    <!-- Poster image is top component of card, can further refine size -->
+                    <div class="card-image" id="poster">
+                        <figure class="image">
+                            <img src="#" alt="">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <p class="title is-4" id="title">Title</p>
+                            <p class="subtitle is-6" id="release-date">Release Date</p>
+                        </div>
+                        <div class="content" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </div>
+                    </div>    
+                    <footer class="card-footer">
+                        <a href="#" class="card-footer-item">Add to My List</a>
+                        <a href="#" class="card-footer-item">More Info</a>
+                    </footer>
                 </div>
-            </div>
         </section>
         <section id="my-list" class="carousel block column is-10 is-offset-1 has-background-grey-lighter">
             <h3 class="title is-3">My List</h3>
-            <div class="carousel" data-slides-to-scroll="1" data-slides-to-show="6" data-navigation="true" data-loop="true">
+            <!-- Carousel acts as the container -->
+            <div class="carousel" id="carousel">
+                <!-- carousel cards -->
                 <div class="card">
-
+                    <!-- Poster image is top component of card, can further refine size -->
+                    <div class="card-image" id="poster">
+                        <figure class="image">
+                            <img src="#" alt="">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <p class="title is-4" id="title">Title</p>
+                            <p class="subtitle is-6" id="release-date">Release Date</p>
+                        </div>
+                        <div class="content" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </div>
+                    </div>    
+                    <footer class="card-footer">
+                        <a href="#" class="card-footer-item">Add to My List</a>
+                        <a href="#" class="card-footer-item">More Info</a>
+                    </footer>
                 </div>
-            </div>
         </section>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
     <script src="assets/js/script.js"></script>
-    <script src="~bulma-carousel/dist/js/bulma-carousel.min.js"></script>
 </body>
 </html>

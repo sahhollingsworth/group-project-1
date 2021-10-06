@@ -1,3 +1,11 @@
+// Carousel for media results sections
+bulmaCarousel.attach('#carousel', {
+    slidesToScroll: 1,
+    slidesToShow: 4,
+    navigation: true,
+    loop: true,
+});
+
 //variable for movie data
 var movieData;
 //variable that stores movieData.movie_results
