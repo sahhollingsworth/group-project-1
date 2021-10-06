@@ -1,3 +1,10 @@
+//variable for movie data
+var movieData;
+//variable that stores movieData.movie_results
+var movieArray;
+//array that stores Movie Objects
+var movieObjects = [];
+
 // Carousel for media results sections
 bulmaCarousel.attach('#carousel', {
     slidesToScroll: 1,
@@ -5,13 +12,6 @@ bulmaCarousel.attach('#carousel', {
     navigation: true,
     loop: true,
 });
-
-//variable for movie data
-var movieData;
-//variable that stores movieData.movie_results
-var movieArray;
-//array that stores Movie Objects
-var movieObjects = [];
 
 //might not be necessary
 class Movie {

@@ -21,19 +21,21 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- all elements with class block will be evenly spaced in relation to each other on the page -->
     <header class="block">
         <h1>Nostalgia Generator</h1>
     </header>
     <main class="columns is-desktop is-vcentered is-multiline">
+        <!-- Search element -->
         <form id="search" class="block column is-10 is-offset-1 has-background-grey-lighter">
-            <!-- 2 search inputs share a horizontal plane, with even spacing -->
+            <!-- 2 search input fields share a horizontal plane, with even spacing -->
             <div class="field is-horizontal">
-                <!-- Year entry field-->
                 <div class="field-label is-medium">
                     <label class="label">Year</label>
                 </div>
                 <div class="field-body">
                     <div class="field">
+                        <!-- control keeps the spacing consistent for all control elements in relation to each other within their container -->
                         <div class="control">
                             <input class="input" type="text" placeholder="Year">
                         </div>
@@ -41,7 +43,6 @@
                 </div>
                 <!-- Helper text appears under input field if user enters anything other than expected 4 digit value-->
                 <p class="help is-danger is-hidden">Please enter a numerical value. eg. 1984</p>
-                <!-- Media type selector -->
                 <div class="field-label is-medium">
                     <label class="label">Media Type</label>
                 </div>
@@ -57,8 +58,8 @@
                     </div>
                 </div>
             </div>      
-            <div class="field is-grouped is-centered">
-                <div class="field-body is-centered">
+            <div class="field is-grouped">
+                <div class="field-body">
                     <div class="field">
                         <div class="control">
                             <div class="buttons">
@@ -70,11 +71,12 @@
                 </div>
             </div>    
         </form>
+        <!-- Empty carousel containers for search result objects -->
         <section id="movies" class="carousel block column is-10 is-offset-1 has-background-grey-lighter">
             <h3 class="title is-3">TV Shows</h3>
             <!-- Carousel acts as the container -->
             <div class="carousel" id="carousel">
-                <!-- carousel cards -->
+                <!-- Carousel card template, JS to create as many as needed and provide contents of child elements -->
                 <div class="card">
                     <!-- Poster image is top component of card, can further refine size -->
                     <div class="card-image" id="poster">
