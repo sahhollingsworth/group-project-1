@@ -39,6 +39,8 @@
                         </div>
                     </div>
                 </div>
+                <!-- Helper text appears under input field if user enters anything other than expected 4 digit value-->
+                <p class="help is-danger is-hidden">Please enter a numerical value. eg. 1984</p>
                 <!-- Media type selector -->
                 <div class="field-label is-medium">
                     <label class="label">Media Type</label>
@@ -54,16 +56,14 @@
                         </div>
                     </div>
                 </div>
-
             </div>      
-
             <div class="field is-grouped is-centered">
                 <div class="field-body is-centered">
                     <div class="field">
                         <div class="control">
                             <div class="buttons">
-                                <button class="button is-primary is-focused">Submit</button>
-                                <button class="button is-primary is-focused">Randomize!</button>
+                                <button class="button is-primary is-focused" id="submit" type="submit">Submit</button>
+                                <button class="button is-primary is-focused" id="randomize" type="submit">Randomize!</button>
                             </div>
                         </div>
                     </div>
