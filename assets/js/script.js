@@ -3,8 +3,9 @@ var movieData;
 //variable that stores movieData.movie_results
 var movieArray;
 //array that stores Movie Objects
-var movieObjects;
+var movieObjects = [];
 
+//might not be necessary
 class Movie {
 	constructor(title, released, poster, plot){
 		this.title = title;
@@ -35,15 +36,16 @@ function getPopular(type, year) {
 			//puts array of media into global array
 			movieArray = movieData.movie_results;
 			console.log(movieArray);
-			//call next function
-
+			//gets more info from OMDb API
+			organizeInfo();
 		});
 }
 
-
+//gets information from OMDb and creates an array of media objects
 function organizeInfo(){
-	for(var i = 0; i < movieArray.length; i++){
-		
+	for(var i = 0; i < 10; i++){
+		//passes the IMDb ID to the function
+		getMediaInfo(movieArray[i].imdb_id);
 	}
 }
 
@@ -54,12 +56,17 @@ function getMediaInfo(imdbID) {
 			return response.json();
 		})
 		.then(data => {
-			console.log(data);
+			//condition if media type is a movie
+			if(data.Type === "movie"){
+				console.log(data);
+				movieObjects.push(data);
+				console.log(movieObjects);
+			}
+			//condition if media type is a series
 		})
 }
 
 getPopular("get-popular-movies", 2021);
-getMediaInfo("tt12361974")
 
 // Google books API fetch
 fetch(`https://www.googleapis.com/books/v1/volumes?q=cat&key=AIzaSyDtUUPKatgp-DpuXV5xxSYrWkT9DLYlIc8`)
