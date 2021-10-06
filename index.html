@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="assets/css/reset.css" />
     <!-- Bulma CSS library-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="~bulma-carousel/dist/css/bulma-carousel.min.css" >
     <link rel="stylesheet" href="assets/css/style.css" />
 
     <!-- JQuery library -->
@@ -20,13 +21,31 @@
     <title>Document</title>
 </head>
 <body>
+    
+    <header>
+        <h1>Nostalgia Generator</h1>
+    </header>
     <main>
-        <header>
-            <h1>Nostalgia Generator</h1>
-        </header>
-        <section id="section-test">
+        <section id="search">
+        </section>
+        <section id="movies" class="carousel">
+        </section>
+        <section id="tvshows" class="carousel">
+        </section>
+        <section id="books" class="carousel">
+        </section>
+        <section id="my-list" class="carousel">
         </section>
     </main>
     <script src="assets/js/script.js"></script>
+    <script src="~bulma-carousel/dist/js/bulma-carousel.min.js"></script>
+    <script>
+		bulmaCarousel.attach('#carousel-demo', {
+			slidesToScroll: 1,
+			slidesToShow: 6,
+            navigation: true,
+            loop: true,
+		});
+	</script>
 </body>
 </html>
