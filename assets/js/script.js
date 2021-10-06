@@ -66,6 +66,24 @@ function getMediaInfo(imdbID) {
 		})
 }
 
+
+function storeToLocalStorage(obj){
+	//get local storage objects
+	var localStorageArray = JSON.parse(localStorage.getItem("myMediaList"));
+	//condition to check if localStorageArray is empty
+	if(localStorageArray === null){
+		//place object in array
+		localStorageArray = [obj];
+	} 
+	//when localStorageArray is not empty
+	else {
+		//push obj to the end of the array
+		localStorageArray.push(obj);
+	}
+	//update local storage with updated array
+	localStorage.setItem("myMediaList", localStorageArray);
+}
+
 getPopular("get-popular-movies", 2021);
 
 // Google books API fetch
