@@ -66,26 +66,40 @@ function getMediaInfo(imdbID) {
 		})
 }
 
-
-function storeToLocalStorage(obj){
+function storeToLocalStorage(obj) {
 	//get local storage objects
 	var localStorageArray = JSON.parse(localStorage.getItem("myMediaList"));
-	console.log(localStorageArray);
 	//condition to check if localStorageArray is empty
-	if(localStorageArray === null){
+	if (localStorageArray === null) {
 		//place object in array
 		localStorageArray = [obj];
-	} 
+	}
 	//when localStorageArray is not empty
 	else {
-		//push obj to the end of the array
-		localStorageArray.push(obj);
+		//boolean to determine repeat titles
+		var isRepeat = false;
+		//check for repeat titles
+		for (var i = 0; i < localStorageArray.length; i++) {
+			if (localStorageArray[i].title == obj.title) {
+				isRepeat = true;
+			}
+		}
+		//when there are repeat titles
+		if (isRepeat) {
+			//modal to tell user that the item has been saved already
+		}
+		//when there are no repeat titles
+		else {
+			//push obj to the end of the array
+			localStorageArray.push(obj);
+		}
 	}
+	console.log(localStorageArray);
 	//update local storage with updated array
 	localStorage.setItem("myMediaList", JSON.stringify(localStorageArray));
 }
 
-storeToLocalStorage("weeeeeeeeeeee");
+storeToLocalStorage({title:"wee", released: "2021"});
 
 //getPopular("get-popular-movies", 2021);
 
