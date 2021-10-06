@@ -1,5 +1,22 @@
+//variable for movie data
+var movieData;
+//variable that stores movieData.movie_results
+var movieArray;
+//array that stores Movie Objects
+var movieObjects;
+
+class Movie {
+	constructor(title, released, poster, plot){
+		this.title = title;
+		this.released = released;
+		this.poster = poster;
+		this.plot = plot;
+	}
+}
+
+//type={get-popular-movies, get-popular-shows}
 function getPopular(type, year) {
-	fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-popular-movies&page=1&year=2018", {
+	fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=" + type + "&page=1&year=" + year, {
 			"method": "GET",
 			"headers": {
 				"x-rapidapi-host": "movies-tvshows-data-imdb.p.rapidapi.com",
@@ -13,22 +30,36 @@ function getPopular(type, year) {
 
 		.then(data => {
 			console.log(data);
+			//stores data to to variable
+			movieData = data;
+			//puts array of media into global array
+			movieArray = movieData.movie_results;
+			console.log(movieArray);
+			//call next function
+
 		});
 }
 
 
-ombdkey = "726baba7";
+function organizeInfo(){
+	for(var i = 0; i < movieArray.length; i++){
+		
+	}
+}
 
-fetch("http://www.omdbapi.com/?apikey=" + ombdkey + "&i=tt1285016")
-	.then(response => {
-		console.log(response);
-		return response.json();
-	})
-	.then(data => {
-		console.log(data);
-	})
+function getMediaInfo(imdbID) {
+	fetch("http://www.omdbapi.com/?apikey=726baba7&i=" + imdbID)
+		.then(response => {
+			console.log(response);
+			return response.json();
+		})
+		.then(data => {
+			console.log(data);
+		})
+}
 
-getPopular();
+getPopular("get-popular-movies", 2021);
+getMediaInfo("tt12361974")
 
 // Google books API fetch
 fetch(`https://www.googleapis.com/books/v1/volumes?q=cat&key=AIzaSyDtUUPKatgp-DpuXV5xxSYrWkT9DLYlIc8`)
