@@ -24,14 +24,49 @@
     <!-- all elements with class block will be evenly spaced in relation to each other on the page -->
     <header class="block">
         <h1 class="title is-1" align="center">Nostalgia Generator</h1>
+        <style>
+            ul {
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              overflow: hidden;
+              background-color: #333;
+            }
+            
+            li {
+              float: left;
+            }
+            
+            li a {
+              display: block;
+              color: rgb(255, 255, 255);
+              text-align: center;
+              padding: 14px 16px;
+              text-decoration: none;
+            }
+            
+            .active {
+              background-color: #04AA6D;
+            }
+            </style>
+            </head>
+            <body>
+            
+            <ul>
+              <li><a class="active" href="#home">Home</a></li>
+              <li><a href="#news">My List</a></li>
+            </ul>
+    
+    
     </header>
+    
     <main class="columns is-desktop is-vcentered is-multiline">
         <!-- Search element -->
         <form id="search" class="block column is-10 is-offset-1 has-background-grey-lighter">
             <!-- 2 search input fields share a horizontal plane, with even spacing -->
             <div class="field is-horizontal">
                 <div class="field-label is-medium">
-                    <label class="label">Year</label>
+                    <label class="label">Search</label>
                 </div>
                 <div class="field-body">
                     <div class="field">
