@@ -9,6 +9,10 @@
     <!-- Bulma CSS library-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css">
+    <!---Header font style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <!-- App style-->
     <link rel="stylesheet" href="assets/css/style.css" />
     <!-- JQuery library -->
@@ -18,20 +22,29 @@
     crossorigin="anonymous"></script>
     <!-- Favicon -->
     <link rel= "shortcut icon" href="assets/images/nostalgia-generator_shortcut-icon.png"/>
-    <title>Document</title>
+    <title>Nostalgia Generator</title>
 </head>
-<body>
+<body class="has-background-danger-light">
     <!-- all elements with class block will be evenly spaced in relation to each other on the page -->
-    <header class="block">
-        <h1>Nostalgia Generator</h1>
-    </header>
+    <nav class="navbar is-danger is-fixed-top" role="navigation">
+        <div class="navbar-brand">
+            <img src="assets/images/nostalgia-generator_shortcut-icon.png" width="112" height="25">
+            <h1 class="is-size-2" id="app-title">Nostalgia Generator</h1>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-end pr-2"> 
+                <a class="navbar-item" href="#search">Search</a>       
+                <a class="navbar-item" href="#my-list">My List</a> 
+            </div>
+        </div> 
+    </nav>
     <main class="columns is-desktop is-vcentered is-multiline">
         <!-- Search element -->
         <form id="search" class="block column is-10 is-offset-1 has-background-grey-lighter">
             <!-- 2 search input fields share a horizontal plane, with even spacing -->
             <div class="field is-horizontal">
                 <div class="field-label is-medium">
-                    <label class="label">Year</label>
+                    <label class="label">Search</label>
                 </div>
                 <div class="field-body">
                     <div class="field">
@@ -70,8 +83,13 @@
             </div>    
         </form>
         <!-- Empty carousel containers for search result objects -->
+<<<<<<< HEAD
         <section id="movies" class="block column is-10 is-offset-1 has-background-grey-lighter">
             <h3 class="title is-3">Movies</h3>
+=======
+        <section id="movies" class="carousel block column is-10 is-offset-1 has-background-success-light">
+            <h3 class="title is-3 has-text-grey-dark">TV Shows</h3>
+>>>>>>> df507e91b2cebb68fb2144f0210f265c4d2ec577
             <!-- Carousel acts as the container -->
             <div class="carousel movies-carousel" id="carousel">
                
@@ -190,10 +208,10 @@
                     </div>
                     <div class="card-content">
                         <div class="content">
-                            <p class="title is-4" id="title">Title</p>
+                            <p class="title is-4 has-text-grey-dark" id="title">Title</p>
                             <p class="subtitle is-6" id="release-date">Release Date</p>
                         </div>
-                        <div class="content" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <div class="content has-text-primary" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </div>
                     </div>    
                     <footer class="card-footer">
@@ -303,10 +321,10 @@
                     </div>
                     <div class="card-content">
                         <div class="content">
-                            <p class="title is-4" id="title">Title</p>
+                            <p class="title is-4 has-text-grey-dark" id="title">Title</p>
                             <p class="subtitle is-6" id="release-date">Release Date</p>
                         </div>
-                        <div class="content" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <div class="content has-text-primary" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </div>
                     </div>    
                     <footer class="card-footer">
@@ -329,10 +347,10 @@
                     </div>
                     <div class="card-content">
                         <div class="content">
-                            <p class="title is-4" id="title">Title</p>
-                            <p class="subtitle is-6" id="release-date">Release Date</p>
+                            <p class="title is-4 has-text-grey-dark" id="title">Title</p>
+                            <p class="subtitle is-6 has-text-grey-dark" id="release-date">Release Date</p>
                         </div>
-                        <div class="content" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <div class="content has-text-primary" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </div>
                     </div>    
                     <footer class="card-footer">
