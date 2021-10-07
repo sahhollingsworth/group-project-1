@@ -24,7 +24,7 @@
     <link rel= "shortcut icon" href="assets/images/nostalgia-generator_shortcut-icon.png"/>
     <title>Nostalgia Generator</title>
 </head>
-<body>
+<body class="has-background-danger-light">
     <!-- all elements with class block will be evenly spaced in relation to each other on the page -->
     <nav class="navbar is-danger" role="navigation">
         <div class="navbar-brand">
@@ -32,68 +32,12 @@
             <h1 class="is-size-1" id="app-title">Nostalgia Generator</h1>
         </div>
         <div class="navbar-menu">
-                <div class="navbar-end">
-                      <div class="navbar-item"> 
-            <div class="navbar-start">
-              <a class="navbar-item" href="#search">
-                Search
-              </a>       
-              <a class="navbar-item" href="#my-list">
-                My List
-              </a> 
+            <div class="navbar-end"> 
+              <a class="navbar-item" href="#search">Search</a>       
+              <a class="navbar-item" href="#my-list">My List</a> 
             </div>
-        </div>
-    </nav>   
-    
-        <!-- <div class="navbar-menu" id="nav-links">
-                    <div class="navbar-end">
-                        <a href="" class="navbar-item">SEARCH</a>
-                        <a href="" class="navbar-item">MENU</a>
-                    </div>
-                </div>
+         </div> 
     </nav>
-    
-        </div>
-        
-        </div> -->
-        
-        <!-- <h1 class="title is-1" align="center">Nostalgia Generator</h1>
-        <style>
-            ul {
-              list-style-type: none;
-              margin: 0;
-              padding: 0;
-              overflow: hidden;
-              background-color: #333;
-            }
-            
-            li {
-              float: left;
-            }
-            
-            li a {
-              display: block;
-              color: rgb(255, 255, 255);
-              text-align: center;
-              padding: 14px 16px;
-              text-decoration: none;
-            }
-            
-            .active {
-              background-color: #04AA6D;
-            }
-            </style>
-            </head>
-            <body>
-            
-            <ul>
-              <li><a class="active" href="#home">Home</a></li>
-              <li><a href="#news">My List</a></li>
-            </ul>
-     -->
-    
-    </nav>
-    
     <main class="columns is-desktop is-vcentered is-multiline">
         <!-- Search element -->
         <form id="search" class="block column is-10 is-offset-1 has-background-grey-lighter">
@@ -113,7 +57,7 @@
                 <!-- Helper text appears under input field if user enters anything other than expected 4 digit value-->
                 <p class="help is-danger is-hidden">Please enter a numerical value. eg. 1984</p>
                 <div class="field-label is-medium">
-                    <label class="label">Media Type</label>
+                    <label class="label">Media</label>
                 </div>
                 <div class="field-body">   
                     <div class="control">
@@ -127,24 +71,22 @@
                     </div>
                 </div>
             </div>      
-            <div class="field is-grouped">
-                <div class="field-body">
-                    <div class="field">
-                        <div class="control">
-                            <div class="buttons">
-                                <button class="button is-primary is-focused" id="submit" type="submit">Submit</button>
-                                <button class="button is-primary is-focused" id="randomize" type="submit">Randomize!</button>
-                            </div>
-                        </div>
-                    </div>
+            <div class="field">
+                <div class="control">
+                    <button class="button is-primary is-focused" id="submit" type="submit">Submit</button>
+                </div>
+            </div>
+            <div class="field">    
+                <div  class="control">  
+                    <button class="button is-primary is-focused" id="randomize" type="submit">Randomize!</button>
                 </div>
             </div>    
         </form>
         <!-- Empty carousel containers for search result objects -->
-        <section id="movies" class="carousel block column is-10 is-offset-1 has-background-grey-lighter">
-            <h3 class="title is-3">TV Shows</h3>
+        <section id="movies" class="carousel block column is-10 is-offset-1 has-background-success-light">
+            <h3 class="title is-3 has-text-grey-dark">TV Shows</h3>
             <!-- Carousel acts as the container -->
-            <div class="carousel" id="carousel">
+            <div class="carousel tv-carousel" id="carousel">
                 <!-- Carousel card template, JS to create as many as needed and provide contents of child elements -->
                 <div class="card">
                     <!-- Poster image is top component of card, can further refine size -->
@@ -155,10 +97,10 @@
                     </div>
                     <div class="card-content">
                         <div class="content">
-                            <p class="title is-4" id="title">Title</p>
+                            <p class="title is-4 has-text-grey-dark" id="title">Title</p>
                             <p class="subtitle is-6" id="release-date">Release Date</p>
                         </div>
-                        <div class="content" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <div class="content has-text-primary" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </div>
                     </div>    
                     <footer class="card-footer">
@@ -167,10 +109,10 @@
                     </footer>
                 </div>
         </section>
-        <section id="tvshows" class="carousel block column is-10 is-offset-1 has-background-grey-lighter">
-            <h3 class="title is-3">Movies</h3>
+        <section id="tvshows" class="carousel block column is-10 is-offset-1 has-background-info-light">
+            <h3 class="title is-3 has-text-grey-dark">Movies</h3>
             <!-- Carousel acts as the container -->
-            <div class="carousel" id="carousel">
+            <div class="carousel movie-carousel" id="carousel">
                 <!-- carousel cards -->
                 <div class="card">
                     <!-- Poster image is top component of card, can further refine size -->
@@ -181,10 +123,10 @@
                     </div>
                     <div class="card-content">
                         <div class="content">
-                            <p class="title is-4" id="title">Title</p>
+                            <p class="title is-4 has-text-grey-dark" id="title">Title</p>
                             <p class="subtitle is-6" id="release-date">Release Date</p>
                         </div>
-                        <div class="content" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <div class="content has-text-primary" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </div>
                     </div>    
                     <footer class="card-footer">
@@ -193,10 +135,10 @@
                     </footer>
                 </div>
         </section>
-        <section id="my-list" class="carousel block column is-10 is-offset-1 has-background-grey-lighter">
-            <h3 class="title is-3">My List</h3>
+        <section id="my-list" class="carousel block column is-10 is-offset-1 has-background-warning-light">
+            <h3 class="title is-3 has-text-grey-dark">My List</h3>
             <!-- Carousel acts as the container -->
-            <div class="carousel" id="carousel">
+            <div class="carousel my-list-carousel" id="carousel">
                 <!-- carousel cards -->
                 <div class="card">
                     <!-- Poster image is top component of card, can further refine size -->
@@ -207,10 +149,10 @@
                     </div>
                     <div class="card-content">
                         <div class="content">
-                            <p class="title is-4" id="title">Title</p>
-                            <p class="subtitle is-6" id="release-date">Release Date</p>
+                            <p class="title is-4 has-text-grey-dark" id="title">Title</p>
+                            <p class="subtitle is-6 has-text-grey-dark" id="release-date">Release Date</p>
                         </div>
-                        <div class="content" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <div class="content has-text-primary" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </div>
                     </div>    
                     <footer class="card-footer">
