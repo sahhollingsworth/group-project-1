@@ -41,7 +41,8 @@ h1 {
     display: inline-block;
 }
 
-.body {
-    background-color: gold;
+html {
+    background: url("https://wallpaperaccess.com/full/2448937.jpg")
+    fixed;
 
 }   
