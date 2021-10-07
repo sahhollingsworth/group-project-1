@@ -1,6 +1,11 @@
+html {
+    background: url("https://wallpaperaccess.com/full/2448937.jpg")
+    fixed;
+} 
+
 /* Page Title header */
 #app-title {
-    font-family: 'Gloria Hallelujah', cursive;
+    font-family: 'Gloria Hallelujah';
 }
 
 /* Vertical center text in Page Title header*/
@@ -15,9 +20,3 @@ h1 {
     font-size: large;
     padding-right: 1.25rem;
 }
-
-html {
-    background: url("https://wallpaperaccess.com/full/2448937.jpg")
-    fixed;
-
-}   
