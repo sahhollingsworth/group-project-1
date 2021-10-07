@@ -20,10 +20,20 @@
     <link rel= "shortcut icon" href="assets/images/nostalgia-generator_shortcut-icon.png"/>
     <title>Document</title>
 </head>
-<body>
+<body class="has-background-danger-light">
     <!-- all elements with class block will be evenly spaced in relation to each other on the page -->
     <header class="block">
-        <h1>Nostalgia Generator</h1>
+        <div class="column">
+            <nav class="navbar is-danger">
+                <div class="navbar-logo">
+                    <div class="navbar-item">
+                        <img src="assets/images/nostalgia-generator_shortcut-icon.png" alt="app logo" style="max-height: 100px">
+                        <h1 class="is-size-1">Nostalgia Generator</h1>
+                    </div>
+                </div>
+            </nav>
+    
+        </div>
     </header>
     <main class="columns is-desktop is-vcentered is-multiline">
         <!-- Search element -->
@@ -72,8 +82,8 @@
             </div>    
         </form>
         <!-- Empty carousel containers for search result objects -->
-        <section id="movies" class="carousel block column is-10 is-offset-1 has-background-grey-lighter">
-            <h3 class="title is-3">TV Shows</h3>
+        <section id="movies" class="carousel block column is-10 is-offset-1 has-background-success-light">
+            <h3 class="title is-3 has-text-grey-dark">TV Shows</h3>
             <!-- Carousel acts as the container -->
             <div class="carousel" id="carousel">
                 <!-- Carousel card template, JS to create as many as needed and provide contents of child elements -->
@@ -86,10 +96,10 @@
                     </div>
                     <div class="card-content">
                         <div class="content">
-                            <p class="title is-4" id="title">Title</p>
+                            <p class="title is-4 has-text-grey-dark" id="title">Title</p>
                             <p class="subtitle is-6" id="release-date">Release Date</p>
                         </div>
-                        <div class="content" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <div class="content has-text-primary" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </div>
                     </div>    
                     <footer class="card-footer">
@@ -98,8 +108,8 @@
                     </footer>
                 </div>
         </section>
-        <section id="tvshows" class="carousel block column is-10 is-offset-1 has-background-grey-lighter">
-            <h3 class="title is-3">Movies</h3>
+        <section id="tvshows" class="carousel block column is-10 is-offset-1 has-background-info-light">
+            <h3 class="title is-3 has-text-grey-dark">Movies</h3>
             <!-- Carousel acts as the container -->
             <div class="carousel" id="carousel">
                 <!-- carousel cards -->
@@ -112,10 +122,10 @@
                     </div>
                     <div class="card-content">
                         <div class="content">
-                            <p class="title is-4" id="title">Title</p>
+                            <p class="title is-4 has-text-grey-dark" id="title">Title</p>
                             <p class="subtitle is-6" id="release-date">Release Date</p>
                         </div>
-                        <div class="content" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <div class="content has-text-primary" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </div>
                     </div>    
                     <footer class="card-footer">
@@ -124,8 +134,8 @@
                     </footer>
                 </div>
         </section>
-        <section id="my-list" class="carousel block column is-10 is-offset-1 has-background-grey-lighter">
-            <h3 class="title is-3">My List</h3>
+        <section id="my-list" class="carousel block column is-10 is-offset-1 has-background-warning-light">
+            <h3 class="title is-3 has-text-grey-dark">My List</h3>
             <!-- Carousel acts as the container -->
             <div class="carousel" id="carousel">
                 <!-- carousel cards -->
@@ -138,10 +148,10 @@
                     </div>
                     <div class="card-content">
                         <div class="content">
-                            <p class="title is-4" id="title">Title</p>
-                            <p class="subtitle is-6" id="release-date">Release Date</p>
+                            <p class="title is-4 has-text-grey-dark" id="title">Title</p>
+                            <p class="subtitle is-6 has-text-grey-dark" id="release-date">Release Date</p>
                         </div>
-                        <div class="content" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <div class="content has-text-primary" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </div>
                     </div>    
                     <footer class="card-footer">
