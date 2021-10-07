@@ -110,3 +110,45 @@ function storeToLocalStorage(obj) {
 storeToLocalStorage({title:"wee", released: "2021"});
 
 //getPopular("get-popular-movies", 2021);
+
+//create a card element and return it
+function makeCard(mediaObj){
+	//make <div> with class card
+	var card = $("<div>").addClass("card");
+	
+	//make <div> for card img
+	var cardImage = $("<div>").addClass("card-image").attr("id", "poster");
+	//make <figure> for cardImage
+	var figureImage = $("<figure>").addClass("image");
+	//make <img> element with url and alt, gets movieObjects[index].Poster
+	var imgElement = $("<img>").attr("src", mediaObj.Poster).attr("alt", "Poster of " + mediaObj.Title);
+
+	//append imgElement to figureImage
+	figureImage.append(imgElement);
+	//append figureImage to cardImage
+	cardImage.append(figureImage);
+	//append cardImage to card
+	card.append(cardImage);
+
+	//make <div> for card-content
+	var cardContent = $("<div>").addClass("card-content");
+	
+	//make <div> for content
+	var titleContent = $("<div>").addClass("content");
+	//make <p> for title
+	var title = $("<p>").addClass("title is-4").attr("id","title").text(mediaObj.Title);
+	//make <p> for subtitle
+	var releaseDate = $("<p>").addClass("subtitle is-6").attr("id", "release-date").text(mediaObj.Released);
+
+	//append title to content
+	titleContent.append(title);
+	//append releaseDate to content
+	titleContent.append(releaseDate);
+	//append titleContent to cardContent
+	cardContent.append(titleContent);
+
+	
+
+	
+
+}
