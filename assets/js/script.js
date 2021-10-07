@@ -114,7 +114,7 @@ function storeToLocalStorage(obj) {
 
 //storeToLocalStorage({title:"wee", released: "2021"});
 
-//getPopular("get-popular-movies", 2021);
+getPopular("get-popular-movies", 2021);
 
 //fill card elements by type {movie-card- , tv-card- }
 function fillCards(mediaArray,type) {
