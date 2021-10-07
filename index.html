@@ -4,48 +4,154 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- style sheets -->
+    <!-- Reset style -->
     <link rel="stylesheet" href="assets/css/reset.css" />
     <!-- Bulma CSS library-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="~bulma-carousel/dist/css/bulma-carousel.min.css" >
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css">
+    <!-- App style-->
     <link rel="stylesheet" href="assets/css/style.css" />
-
     <!-- JQuery library -->
     <script
     src="https://code.jquery.com/jquery-3.6.0.slim.js"
     integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
     crossorigin="anonymous"></script>
-
+    <!-- Favicon -->
     <link rel= "shortcut icon" href="assets/images/nostalgia-generator_shortcut-icon.png"/>
     <title>Document</title>
 </head>
 <body>
-    
-    <header>
+    <!-- all elements with class block will be evenly spaced in relation to each other on the page -->
+    <header class="block">
         <h1>Nostalgia Generator</h1>
     </header>
-    <main>
-        <section id="search">
+    <main class="columns is-desktop is-vcentered is-multiline">
+        <!-- Search element -->
+        <form id="search" class="block column is-10 is-offset-1 has-background-grey-lighter">
+            <!-- 2 search input fields share a horizontal plane, with even spacing -->
+            <div class="field is-horizontal">
+                <div class="field-label is-medium">
+                    <label class="label">Year</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <!-- control keeps the spacing consistent for all control elements in relation to each other within their container -->
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Year">
+                        </div>
+                    </div>
+                </div>
+                <!-- Helper text appears under input field if user enters anything other than expected 4 digit value-->
+                <p class="help is-danger is-hidden">Please enter a numerical value. eg. 1984</p>
+                <div class="field-label is-medium">
+                    <label class="label">Media Type</label>
+                </div>
+                <div class="field-body">   
+                    <div class="control">
+                        <div class="select">
+                            <select>
+                                <option>All</option>
+                                <option>TV Shows</option>
+                                <option>Movies</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>      
+            <div class="field is-grouped">
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <div class="buttons">
+                                <button class="button is-primary is-focused" id="submit" type="submit">Submit</button>
+                                <button class="button is-primary is-focused" id="randomize" type="submit">Randomize!</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </form>
+        <!-- Empty carousel containers for search result objects -->
+        <section id="movies" class="carousel block column is-10 is-offset-1 has-background-grey-lighter">
+            <h3 class="title is-3">TV Shows</h3>
+            <!-- Carousel acts as the container -->
+            <div class="carousel" id="carousel">
+                <!-- Carousel card template, JS to create as many as needed and provide contents of child elements -->
+                <div class="card">
+                    <!-- Poster image is top component of card, can further refine size -->
+                    <div class="card-image" id="poster">
+                        <figure class="image">
+                            <img src="#" alt="">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <p class="title is-4" id="title">Title</p>
+                            <p class="subtitle is-6" id="release-date">Release Date</p>
+                        </div>
+                        <div class="content" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </div>
+                    </div>    
+                    <footer class="card-footer">
+                        <a href="#" class="card-footer-item">Add to My List</a>
+                        <a href="#" class="card-footer-item">More Info</a>
+                    </footer>
+                </div>
         </section>
-        <section id="movies" class="carousel">
+        <section id="tvshows" class="carousel block column is-10 is-offset-1 has-background-grey-lighter">
+            <h3 class="title is-3">Movies</h3>
+            <!-- Carousel acts as the container -->
+            <div class="carousel" id="carousel">
+                <!-- carousel cards -->
+                <div class="card">
+                    <!-- Poster image is top component of card, can further refine size -->
+                    <div class="card-image" id="poster">
+                        <figure class="image">
+                            <img src="#" alt="">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <p class="title is-4" id="title">Title</p>
+                            <p class="subtitle is-6" id="release-date">Release Date</p>
+                        </div>
+                        <div class="content" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </div>
+                    </div>    
+                    <footer class="card-footer">
+                        <a href="#" class="card-footer-item">Add to My List</a>
+                        <a href="#" class="card-footer-item">More Info</a>
+                    </footer>
+                </div>
         </section>
-        <section id="tvshows" class="carousel">
-        </section>
-        <section id="books" class="carousel">
-        </section>
-        <section id="my-list" class="carousel">
+        <section id="my-list" class="carousel block column is-10 is-offset-1 has-background-grey-lighter">
+            <h3 class="title is-3">My List</h3>
+            <!-- Carousel acts as the container -->
+            <div class="carousel" id="carousel">
+                <!-- carousel cards -->
+                <div class="card">
+                    <!-- Poster image is top component of card, can further refine size -->
+                    <div class="card-image" id="poster">
+                        <figure class="image">
+                            <img src="#" alt="">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <p class="title is-4" id="title">Title</p>
+                            <p class="subtitle is-6" id="release-date">Release Date</p>
+                        </div>
+                        <div class="content" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </div>
+                    </div>    
+                    <footer class="card-footer">
+                        <a href="#" class="card-footer-item">Add to My List</a>
+                        <a href="#" class="card-footer-item">More Info</a>
+                    </footer>
+                </div>
         </section>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
     <script src="assets/js/script.js"></script>
-    <script src="~bulma-carousel/dist/js/bulma-carousel.min.js"></script>
-    <script>
-		bulmaCarousel.attach('#carousel-demo', {
-			slidesToScroll: 1,
-			slidesToShow: 6,
-            navigation: true,
-            loop: true,
-		});
-	</script>
 </body>
 </html>
