@@ -1,9 +1,15 @@
 //variable for movie data
 var movieData;
+//variable for tv data
+var tvData;
+//variable that stores tvData.tv_results
+var tvArray;
 //variable that stores movieData.movie_results
 var movieArray;
 //array that stores Movie Objects
 var movieObjects = [];
+//array to store TV Shows
+var tvObjects = [];
 
 // Carousel for media results sections
 bulmaCarousel.attach('#carousel', {
@@ -12,16 +18,6 @@ bulmaCarousel.attach('#carousel', {
 	navigation: true,
 	loop: true,
 });
-
-//might not be necessary
-class Movie {
-	constructor(title, released, poster, plot) {
-		this.title = title;
-		this.released = released;
-		this.poster = poster;
-		this.plot = plot;
-	}
-}
 
 //type={get-popular-movies, get-popular-shows}
 function getPopular(type, year) {
@@ -39,25 +35,34 @@ function getPopular(type, year) {
 
 		.then(data => {
 			console.log(data);
-			//stores data to to variable
-			movieData = data;
-			//puts array of media into global array
-			movieArray = movieData.movie_results;
-			console.log(movieArray);
-			//gets more info from OMDb API
-			organizeInfo();
+			if (type === "get-popular-movies") {
+				//stores data to variable
+				movieData = data;
+				//puts array of media into global array
+				movieArray = movieData.movie_results;
+				console.log(movieArray);
+			} else if (type === "get-popular-shows") {
+				//store data to variable
+				tvData = data;
+				//put array of tv results into global array
+				tvArray = tvData.tv_results;
+			}
+			organizeInfo(type);
 		});
 }
 
 //gets information from OMDb and creates an array of media objects
-function organizeInfo() {
+function organizeInfo(type) {
 	for (var i = 0; i < 10; i++) {
-		//passes the IMDb ID to the function
-		getMediaInfo(movieArray[i].imdb_id);
+		console.log(type);
+		if (type === "get-popular-movies") {
+			//passes the IMDb ID to the function
+			getMediaInfo(movieArray[i].imdb_id);
+		} else if (type === "get-popular-shows") {
+			//passes the IMDb ID to the function
+			getMediaInfo(tvArray[i].imdb_id);
+		}
 	}
-
-	//fill the cards with info
-	fillCards(movieObjects, "movie-card-")
 }
 
 function getMediaInfo(imdbID) {
@@ -69,13 +74,16 @@ function getMediaInfo(imdbID) {
 		.then(data => {
 			//condition if media type is a movie
 			if (data.Type === "movie") {
-				console.log(data);
+				//console.log(data);
 				movieObjects.push(data);
-				console.log(movieObjects);
+				//console.log(movieObjects);
 
 
 			}
 			//condition if media type is a series
+			else if (data.Type === "series") {
+				tvObjects.push(data);
+			}
 		})
 }
 
@@ -114,13 +122,11 @@ function storeToLocalStorage(obj) {
 
 //storeToLocalStorage({title:"wee", released: "2021"});
 
-getPopular("get-popular-movies", 2021);
-
 //fill card elements by type {movie-card- , tv-card- }
-function fillCards(mediaArray,type) {
-	
+function fillCards(mediaArray, type) {
+
 	//for loop that iterates through the mediaArray
-	for(var i = 0; i < mediaArray.length; i++){
+	for (var i = 0; i < mediaArray.length; i++) {
 		//get element by card id
 		var element = document.getElementById(type + i);
 		//add media poster to element at index i
@@ -142,47 +148,20 @@ function fillCards(mediaArray,type) {
 	}
 }
 
-//example movieObject
-var myMovie = {
-	Title: "Zack Snyder's Justice League",
-	Year: "2021",
-	Rated: "R",
-	Released: "18 Mar 2021",
-	Runtime: "242 min",
-	Genre: "Action, Adventure, Fantasy",
-	Director: "Zack Snyder",
-	Writer: "Jerry Siegel, Joe Shuster, Zack Snyder",
-	Actors: "Henry Cavill, Ben Affleck, Gal Gadot",
-	Plot: "Determined to ensure Superman's ultimate sacrifice was not in vain, Bruce Wayne aligns forces with Diana Prince with plans to recruit a team of metahumans to protect the world from an approaching threat of catastrophic proportions.",
-	Language: "English, Icelandic, French",
-	Country: "United States, United Kingdom",
-	Awards: "2 nominations",
-	Poster: "https://m.media-amazon.com/images/M/MV5BYjI3NDg0ZTEtMDEwYS00YWMyLThjYjktMTNlM2NmYjc1OGRiXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_SX300.jpg",
-	Ratings: [{
-			Source: "Internet Movie Database",
-			Value: "8.1/10"
-		},
-		{
-			Source: "Metacritic",
-			Value: "54/100"
-		}
-	],
-	Metascore: "54",
-	imdbRating: "8.1",
-	imdbVotes: "333,160",
-	imdbID: "tt12361974",
-	Type: "movie",
-	DVD: "N/A",
-	BoxOffice: "N/A",
-	Production: "N/A",
-	Website: "N/A",
-	Response: "True"
+function getPopularMoviesOf(year) {
+	getPopular("get-popular-movies", year);
+	setTimeout(function () {
+		fillCards(movieObjects, "movie-card-")
+	}, 200);
 }
 
+function getPopularShowsOf(year) {
+	getPopular("get-popular-shows", year)
+	setTimeout(function () {
+		fillCards(tvObjects, "tv-card-")
+	}, 200);
+}
 
+getPopularMoviesOf(2021);
+getPopularShowsOf(2021);
 
-console.log(movieObjects);
-
-setTimeout(function(){
-	fillCards(movieObjects, "movie-card-")
-}, 500);

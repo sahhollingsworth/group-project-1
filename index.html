@@ -37,9 +37,9 @@
             </div>
         </div> 
     </nav>
-    <main class="columns is-desktop is-vcentered is-multiline">
+    <main class="columns is-desktop is-vcentered is-multiline mt-6 pt-6">
         <!-- Search element -->
-        <form id="search" class="block column is-10 is-offset-1 has-background-grey-lighter">
+        <form id="search" class="block column is-10 is-offset-1 has-background-grey-lighter mt-6">
             <!-- 2 search input fields share a horizontal plane, with even spacing -->
             <div class="field is-horizontal">
                 <div class="field-label is-medium">
@@ -82,8 +82,7 @@
             </div>    
         </form>
         <!-- Empty carousel containers for search result objects -->
-        <section id="movies" class="carousel block column is-10 is-offset-1 has-background-danger-light">
-            
+        <section id="movies" class="block column is-10 is-offset-1 has-background-success-light">
             <h3 class="title is-3 has-text-grey-dark">Movies</h3>
             <!-- Carousel acts as the container -->
             <div class="carousel movies-carousel" id="carousel">
@@ -306,8 +305,9 @@
             <h3 class="title is-3">TV Shows</h3>
             <!-- Carousel acts as the container -->
             <div class="carousel tv-carousel" id="carousel">
+                
                 <!-- carousel cards -->
-                <div class="card">
+                <div class="card" id="tv-card-0">
                     <!-- Poster image is top component of card, can further refine size -->
                     <div class="card-image" id="poster">
                         <figure class="image">
@@ -323,15 +323,215 @@
                         </div>
                     </div>    
                     <footer class="card-footer">
-                        <a href="#" class="card-footer-item">Add to My List</a>
+                        <a href="#my-list" class="card-footer-item">Add to My List</a>
                         <a href="#" class="card-footer-item">More Info</a>
                     </footer>
                 </div>
+
+                <!-- carousel cards -->
+                <div class="card" id="tv-card-1">
+                    <!-- Poster image is top component of card, can further refine size -->
+                    <div class="card-image" id="poster">
+                        <figure class="image">
+                            <img src="#" alt="">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <p class="title is-4 has-text-grey-dark" id="title">Title</p>
+                            <p class="subtitle is-6" id="release-date">Release Date</p>
+                        </div>
+                        <div class="content has-text-primary" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </div>
+                    </div>    
+                    <footer class="card-footer">
+                        <a href="#my-list" class="card-footer-item">Add to My List</a>
+                        <a href="#" class="card-footer-item">More Info</a>
+                    </footer>
+                </div>
+
+                <!-- carousel cards -->
+                <div class="card" id="tv-card-2">
+                    <!-- Poster image is top component of card, can further refine size -->
+                    <div class="card-image" id="poster">
+                        <figure class="image">
+                            <img src="#" alt="">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <p class="title is-4 has-text-grey-dark" id="title">Title</p>
+                            <p class="subtitle is-6" id="release-date">Release Date</p>
+                        </div>
+                        <div class="content has-text-primary" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </div>
+                    </div>    
+                    <footer class="card-footer">
+                        <a href="#my-list" class="card-footer-item">Add to My List</a>
+                        <a href="#" class="card-footer-item">More Info</a>
+                    </footer>
+                </div>
+
+                <!-- carousel cards -->
+                <div class="card" id="tv-card-3">
+                    <!-- Poster image is top component of card, can further refine size -->
+                    <div class="card-image" id="poster">
+                        <figure class="image">
+                            <img src="#" alt="">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <p class="title is-4 has-text-grey-dark" id="title">Title</p>
+                            <p class="subtitle is-6" id="release-date">Release Date</p>
+                        </div>
+                        <div class="content has-text-primary" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </div>
+                    </div>    
+                    <footer class="card-footer">
+                        <a href="#my-list" class="card-footer-item">Add to My List</a>
+                        <a href="#" class="card-footer-item">More Info</a>
+                    </footer>
+                </div>
+
+                <!-- carousel cards -->
+                <div class="card" id="tv-card-4">
+                    <!-- Poster image is top component of card, can further refine size -->
+                    <div class="card-image" id="poster">
+                        <figure class="image">
+                            <img src="#" alt="">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <p class="title is-4 has-text-grey-dark" id="title">Title</p>
+                            <p class="subtitle is-6" id="release-date">Release Date</p>
+                        </div>
+                        <div class="content has-text-primary" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </div>
+                    </div>    
+                    <footer class="card-footer">
+                        <a href="#my-list" class="card-footer-item">Add to My List</a>
+                        <a href="#" class="card-footer-item">More Info</a>
+                    </footer>
+                </div>
+
+                <!-- carousel cards -->
+                <div class="card" id="tv-card-5">
+                    <!-- Poster image is top component of card, can further refine size -->
+                    <div class="card-image" id="poster">
+                        <figure class="image">
+                            <img src="#" alt="">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <p class="title is-4 has-text-grey-dark" id="title">Title</p>
+                            <p class="subtitle is-6" id="release-date">Release Date</p>
+                        </div>
+                        <div class="content has-text-primary" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </div>
+                    </div>    
+                    <footer class="card-footer">
+                        <a href="#my-list" class="card-footer-item">Add to My List</a>
+                        <a href="#" class="card-footer-item">More Info</a>
+                    </footer>
+                </div>
+
+                <!-- carousel cards -->
+                <div class="card" id="tv-card-6">
+                    <!-- Poster image is top component of card, can further refine size -->
+                    <div class="card-image" id="poster">
+                        <figure class="image">
+                            <img src="#" alt="">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <p class="title is-4 has-text-grey-dark" id="title">Title</p>
+                            <p class="subtitle is-6" id="release-date">Release Date</p>
+                        </div>
+                        <div class="content has-text-primary" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </div>
+                    </div>    
+                    <footer class="card-footer">
+                        <a href="#my-list" class="card-footer-item">Add to My List</a>
+                        <a href="#" class="card-footer-item">More Info</a>
+                    </footer>
+                </div>
+
+                <!-- carousel cards -->
+                <div class="card" id="tv-card-7">
+                    <!-- Poster image is top component of card, can further refine size -->
+                    <div class="card-image" id="poster">
+                        <figure class="image">
+                            <img src="#" alt="">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <p class="title is-4 has-text-grey-dark" id="title">Title</p>
+                            <p class="subtitle is-6" id="release-date">Release Date</p>
+                        </div>
+                        <div class="content has-text-primary" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </div>
+                    </div>    
+                    <footer class="card-footer">
+                        <a href="#my-list" class="card-footer-item">Add to My List</a>
+                        <a href="#" class="card-footer-item">More Info</a>
+                    </footer>
+                </div>
+
+                <!-- carousel cards -->
+                <div class="card" id="tv-card-8">
+                    <!-- Poster image is top component of card, can further refine size -->
+                    <div class="card-image" id="poster">
+                        <figure class="image">
+                            <img src="#" alt="">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <p class="title is-4 has-text-grey-dark" id="title">Title</p>
+                            <p class="subtitle is-6" id="release-date">Release Date</p>
+                        </div>
+                        <div class="content has-text-primary" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </div>
+                    </div>    
+                    <footer class="card-footer">
+                        <a href="#my-list" class="card-footer-item">Add to My List</a>
+                        <a href="#" class="card-footer-item">More Info</a>
+                    </footer>
+                </div>
+
+                <!-- carousel cards -->
+                <div class="card" id="tv-card-9">
+                    <!-- Poster image is top component of card, can further refine size -->
+                    <div class="card-image" id="poster">
+                        <figure class="image">
+                            <img src="#" alt="">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <p class="title is-4 has-text-grey-dark" id="title">Title</p>
+                            <p class="subtitle is-6" id="release-date">Release Date</p>
+                        </div>
+                        <div class="content has-text-primary" id="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </div>
+                    </div>    
+                    <footer class="card-footer">
+                        <a href="#my-list" class="card-footer-item">Add to My List</a>
+                        <a href="#" class="card-footer-item">More Info</a>
+                    </footer>
+                </div>
+
+
+
+
         </section>
         <section id="my-list" class="block column is-10 is-offset-1 has-background-warning-light">
             <h3 class="title is-3">My List</h3>
-            <!-- Carousel acts as the container -->
-            <div class="carousel my-list-carousel" id="carousel">
                 <!-- carousel cards -->
                 <div class="card">
                     <!-- Poster image is top component of card, can further refine size -->
