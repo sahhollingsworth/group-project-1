@@ -148,54 +148,20 @@ function fillCards(mediaArray, type) {
 	}
 }
 
-//example movieObject
-var myMovie = {
-	Title: "Zack Snyder's Justice League",
-	Year: "2021",
-	Rated: "R",
-	Released: "18 Mar 2021",
-	Runtime: "242 min",
-	Genre: "Action, Adventure, Fantasy",
-	Director: "Zack Snyder",
-	Writer: "Jerry Siegel, Joe Shuster, Zack Snyder",
-	Actors: "Henry Cavill, Ben Affleck, Gal Gadot",
-	Plot: "Determined to ensure Superman's ultimate sacrifice was not in vain, Bruce Wayne aligns forces with Diana Prince with plans to recruit a team of metahumans to protect the world from an approaching threat of catastrophic proportions.",
-	Language: "English, Icelandic, French",
-	Country: "United States, United Kingdom",
-	Awards: "2 nominations",
-	Poster: "https://m.media-amazon.com/images/M/MV5BYjI3NDg0ZTEtMDEwYS00YWMyLThjYjktMTNlM2NmYjc1OGRiXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_SX300.jpg",
-	Ratings: [{
-			Source: "Internet Movie Database",
-			Value: "8.1/10"
-		},
-		{
-			Source: "Metacritic",
-			Value: "54/100"
-		}
-	],
-	Metascore: "54",
-	imdbRating: "8.1",
-	imdbVotes: "333,160",
-	imdbID: "tt12361974",
-	Type: "movie",
-	DVD: "N/A",
-	BoxOffice: "N/A",
-	Production: "N/A",
-	Website: "N/A",
-	Response: "True"
+function getPopularMoviesOf(year) {
+	getPopular("get-popular-movies", year);
+	setTimeout(function () {
+		fillCards(movieObjects, "movie-card-")
+	}, 200);
 }
 
+function getPopularShowsOf(year) {
+	getPopular("get-popular-shows", year)
+	setTimeout(function () {
+		fillCards(tvObjects, "tv-card-")
+	}, 200);
+}
 
+getPopularMoviesOf(2021);
+getPopularShowsOf(2021);
 
-console.log(movieObjects);
-
-getPopular("get-popular-movies", 2021);
-getPopular("get-popular-shows", 2021)
-
-setTimeout(function () {
-	fillCards(movieObjects, "movie-card-")
-}, 500);
-
-setTimeout(function () {
-	fillCards(tvObjects, "tv-card-")
-}, 500);
