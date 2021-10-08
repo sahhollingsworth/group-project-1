@@ -1,5 +1,6 @@
 # Nostalgia Generator
-TBD
+The Nostalgia Generator is a Javascript-based web application that allows users to search for all media for a given year. They are able to broswe through titles in a simple set of carousels, choosing between learning more about titles of interst or saving interesting titles for later review in their personal List.
+
 
 ## Deployed Application
 [Click here to check the Nostalgia Generator.](https://sahhollingsworth.github.io/nostalgia-generator/ "link to the Nostalgia Generator web application")
@@ -7,6 +8,20 @@ TBD
 ![Image](PATHTOLOCALGIFORIMAGEFILE "screenshot of web Nostalgia Generator application")
 
 ## Summary
+The Nostalgia Generator is a web application that allows user to enter a year value and media type to receive a carousel of the most popular movies and tv shows for any given year. Each movie or tv show is presented with a poster, description, and release date. For any item, the user can choose to see more information about it and be redirected to IMDB.com or save it to their list to revisit at a later date.
+
+should note that it's build on javascript using Pace for loading elements and SweetAlert for alert elements. Using minimal custom CSS and instead leverage Bulma framework so Nostalgia Generator is a dynamic, mobile first web application.
+
+## Future Developement
+* Handle non-200 API responses, update user
+* Dynamic creation of media cards via javascript
+* Support adding Book results to a user’s Google Books list directly from the app. Requires Google OAuth implementation
+* Switch to a less verbose, more widely-supported CSS library
+* Improve small screen device support
+* Handle case when media description is empty
+* Search filters for genre, age, volume of results, content language
+* Support time range search in addition to year
+* Support additional media types, such as toys, video games, books, music
 
 ## Built with
 * [SweetAlert.js](https://sweetalert.js.org/guides/)
