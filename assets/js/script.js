@@ -319,6 +319,19 @@ $("#submit").on('click', function (e) {
 	$(".input").val('');
 });
 
+$('#randomize').click(function (e) {
+	e.preventDefault();
+	clearArrObj();
+	var randDate = randomize(1920, 2021);
+	getPopularMoviesOf(randDate);
+	getPopularShowsOf(randDate);
+})
+
+//random number between min and max
+function randomize(min, max) {
+	return Math.floor(Math.random() * (max - min) + min);
+}
+
 //wait for every card to load when the page refreshes
 setTimeout(function () {
 	//for every element in the DOM with id #my-list-card
