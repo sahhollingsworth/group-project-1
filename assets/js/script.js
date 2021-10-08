@@ -1,5 +1,8 @@
 $(function () {
 	getfromlocalStorage();
+	//on page load, present the user with top 10 of each current year
+	getPopularMoviesOf(2021);
+	getPopularShowsOf(2021);
 });
 
 
@@ -266,24 +269,21 @@ function clearArrObj() {
 	}, 1000);
 }
 
-
+//gets items from local storage and presents it to the user
 function getfromlocalStorage() {
+	//get local storage item myMediaList
 	var varMediaArray = JSON.parse(localStorage.getItem("myMediaList"));
+	//if media array is empty leave the function
 	if (varMediaArray === null) {
 		return;
 	}
+	//for every item in the array make a card and append it to mylist-container
 	for (i = 0; i < varMediaArray.length; i++) {
 		var card = makeCard(varMediaArray[i]);
 		$("#mylist-container").append(card);
 	}
 
 }
-
-
-
-getPopularMoviesOf(2021);
-getPopularShowsOf(2021);
-
 
 $("#submit").on('click', function (e) {
 	e.preventDefault();
@@ -319,19 +319,40 @@ $("#submit").on('click', function (e) {
 	$(".input").val('');
 });
 
-setTimeout(function () {
-	document.querySelectorAll("#my-list-card").forEach(item => {
-		item.addEventListener("click", event => {
-			var favTitle = event.target.parentNode.parentNode.children[1].children[0].children[0].innerText;
-			console.log(event.target.parentNode.parentNode.children[1].children[0].children[0].innerText);
-			var allMedia = tvObjects.concat(movieObjects);
+$('#randomize').click(function (e) {
+	e.preventDefault();
+	clearArrObj();
+	var randDate = randomize(1920, 2021);
+	getPopularMoviesOf(randDate);
+	getPopularShowsOf(randDate);
+})
 
+//random number between min and max
+function randomize(min, max) {
+	return Math.floor(Math.random() * (max - min) + min);
+}
+
+//wait for every card to load when the page refreshes
+setTimeout(function () {
+	//for every element in the DOM with id #my-list-card
+	document.querySelectorAll("#my-list-card").forEach(item => {
+		//add a click event listener to each element
+		item.addEventListener("click", event => {
+			//DOM manipulation to go up to the parent of the parent and then get the children down to get the title
+			var favTitle = event.target.parentNode.parentNode.children[1].children[0].children[0].innerText;
+			//console.log(event.target.parentNode.parentNode.children[1].children[0].children[0].innerText);
+			//combine both object arrays together
+			var allMedia = tvObjects.concat(movieObjects);
+			//loop to go through allMedia array
 			for (var i = 0; i < allMedia.length; i++) {
-				console.log(allMedia[i]);
-				console.log(allMedia[i].Title);
+				//console.log(allMedia[i]);
+				//console.log(allMedia[i].Title);
+				//if the title of media array matches the favorite movie title
 				if (allMedia[i].Title === favTitle) {
+					//store it to local storage
 					storeToLocalStorage(allMedia[i]);
-					console.log(allMedia[i]);
+					//console.log(allMedia[i]);
+					//add it to the mylist-container
 					$("#mylist-container").append(makeCard(allMedia[i]));
 				}
 			}
