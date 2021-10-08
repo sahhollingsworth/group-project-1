@@ -66,7 +66,7 @@ function organizeInfo(type) {
 }
 
 function getMediaInfo(imdbID) {
-	fetch("http://www.omdbapi.com/?apikey=726baba7&i=" + imdbID)
+	fetch("https://www.omdbapi.com/?apikey=726baba7&i=" + imdbID)
 		.then(response => {
 			console.log(response);
 			return response.json();
