@@ -526,9 +526,9 @@
         <!-- Section for user's saved media items -->
         <section id="my-list" class="block column is-10 is-offset-1 has-background-warning-light">
             <h3 class="title is-3">My List</h3>
-
-                <!-- carousel cards -->
-                <div class="card" id="mylist-container">
+            <div class="mylist-grid" id="mylist-container">
+                <!-- card template, JS to fill details -->
+                <div class="card">
                     <!-- Poster image is top component of card, can further refine size -->
                     <div class="card-image" id="poster">
                         <figure class="image">
@@ -547,6 +547,7 @@
                         <a href="#" class="card-footer-item">More Info</a>
                     </footer>
                 </div>
+            </div>
         </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
