@@ -21,6 +21,9 @@ h1 {
     padding-right: 1.25rem;
 }
 
+#my-list .card {
+    width: 295px;
+}
 /* Carousel and child element styling */
 /* Hides all carousel cards not currently being viewed, # defined in js script  */
 .carousel {

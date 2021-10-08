@@ -1,3 +1,8 @@
+$(function () {
+	getfromlocalStorage();
+});
+
+
 //variable for movie data
 var movieData;
 //variable for tv data
@@ -10,6 +15,8 @@ var movieArray;
 var movieObjects = [];
 //array to store TV Shows
 var tvObjects = [];
+//array for my favorites
+var myFavorites = [];
 
 // Carousel for media results sections
 bulmaCarousel.attach('#carousel', {
@@ -26,12 +33,12 @@ bulmaCarousel.attach('#carousel', {
 //type={get-popular-movies, get-popular-shows}
 function getPopular(type, year) {
 	fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=" + type + "&page=1&year=" + year, {
-		"method": "GET",
-		"headers": {
-			"x-rapidapi-host": "movies-tvshows-data-imdb.p.rapidapi.com",
-			"x-rapidapi-key": "1acff560dfmshb97c3c2facb502cp19f4b7jsn8e70140c970f"
-		}
-	})
+			"method": "GET",
+			"headers": {
+				"x-rapidapi-host": "movies-tvshows-data-imdb.p.rapidapi.com",
+				"x-rapidapi-key": "1acff560dfmshb97c3c2facb502cp19f4b7jsn8e70140c970f"
+			}
+		})
 		.then(response => {
 			console.log(response);
 			return response.json();
@@ -103,7 +110,7 @@ function storeToLocalStorage(obj) {
 		var isRepeat = false;
 		//check for repeat titles
 		for (var i = 0; i < localStorageArray.length; i++) {
-			if (localStorageArray[i].title == obj.title) {
+			if (localStorageArray[i].Title == obj.Title) {
 				isRepeat = true;
 			}
 		}
@@ -125,64 +132,66 @@ function storeToLocalStorage(obj) {
 
 //storeToLocalStorage({title:"wee", released: "2021"});
 //create a card element and return it
-function makeCard(mediaObj){
-    //make <div> with class card
-    var card = $("<div>").addClass("card");
-    
-    //make <div> for card img
-    var cardImage = $("<div>").addClass("card-image").attr("id", "poster");
-    //make <figure> for cardImage
-    var figureImage = $("<figure>").addClass("image");
-    //make <img> element with url and alt, gets movieObjects[index].Poster
-    var imgElement = $("<img>").attr("src", mediaObj.Poster).attr("alt", "Poster of " + mediaObj.Title);
+function makeCard(mediaObj) {
+	//make <div> with class card
+	var card = $("<div>").addClass("card").css({
+		'style': 'width=295px',
+		'margin': '0px 25px'
+	});
 
-    //append imgElement to figureImage
-    figureImage.append(imgElement);
-    //append figureImage to cardImage
-    cardImage.append(figureImage);
-    //append cardImage to card
-    card.append(cardImage);
+	//make <div> for card img
+	var cardImage = $("<div>").addClass("card-image").attr("id", "poster");
+	//make <figure> for cardImage
+	var figureImage = $("<figure>").addClass("image");
+	//make <img> element with url and alt, gets movieObjects[index].Poster
+	var imgElement = $("<img>").attr("src", mediaObj.Poster).attr("alt", "Poster of " + mediaObj.Title);
 
-    //make <div> for card-content
-    var cardContent = $("<div>").addClass("card-content");
-    
-    //make <div> for content
-    var titleContent = $("<div>").addClass("content");
-    //make <p> for title
-    var title = $("<p>").addClass("title is-4").attr("id","title").text(mediaObj.Title);
-    //make <p> for subtitle
-    var releaseDate = $("<p>").addClass("subtitle is-6").attr("id", "release-date").text(mediaObj.Released);
+	//append imgElement to figureImage
+	figureImage.append(imgElement);
+	//append figureImage to cardImage
+	cardImage.append(figureImage);
+	//append cardImage to card
+	card.append(cardImage);
 
-    //append title to content
-    titleContent.append(title);
-    //append releaseDate to content
-    titleContent.append(releaseDate);
-    //append titleContent to cardContent
-    cardContent.append(titleContent);
+	//make <div> for card-content
+	var cardContent = $("<div>").addClass("card-content");
 
-    //create <div> for synopsis
-    var synopsis = $("<div>").addClass("content").attr("id", "synopsis").text(mediaObj.Plot);
+	//make <div> for content
+	var titleContent = $("<div>").addClass("content");
+	//make <p> for title
+	var title = $("<p>").addClass("title is-4").attr("id", "title").text(mediaObj.Title);
+	//make <p> for subtitle
+	var releaseDate = $("<p>").addClass("subtitle is-6").attr("id", "release-date").text(mediaObj.Released);
 
-    //append synopsis to cardContent
-    cardContent.append(synopsis);
-    //append cardContent to card
-    card.append(cardContent);
+	//append title to content
+	titleContent.append(title);
+	//append releaseDate to content
+	titleContent.append(releaseDate);
+	//append titleContent to cardContent
+	cardContent.append(titleContent);
 
-    //make <footer> for card-footer
-    var cardFooter = $("<footer>").addClass("card-footer");
-    //make <a> for more info
-    var moreInfo = $("<a>").addClass("card-footer-item").attr("href", "https://www.imdb.com/title/" + mediaObj.imdbID + "/").attr("target", "_blank").text("More Info");
+	//create <div> for synopsis
+	var synopsis = $("<div>").addClass("content").attr("id", "synopsis").text(mediaObj.Plot);
 
-    //append moreInfo to cardFooter
-    cardFooter.append(moreInfo);
-    //append cardFooter to card
-    card.append(cardFooter);
+	//append synopsis to cardContent
+	cardContent.append(synopsis);
+	//append cardContent to card
+	card.append(cardContent);
 
-    return card;
+	//make <footer> for card-footer
+	var cardFooter = $("<footer>").addClass("card-footer");
+	//make <a> for more info
+	var moreInfo = $("<a>").addClass("card-footer-item").attr("href", "https://www.imdb.com/title/" + mediaObj.imdbID + "/").attr("target", "_blank").text("More Info");
+
+	//append moreInfo to cardFooter
+	cardFooter.append(moreInfo);
+	//append cardFooter to card
+	card.append(cardFooter);
+
+	return card;
 }
 //fill card elements by type {movie-card- , tv-card- }
 function fillCards(mediaArray, type) {
-
 	emptyCards(mediaArray, type);
 	//for loop that iterates through the mediaArray
 	for (var i = 0; i < mediaArray.length; i++) {
@@ -200,12 +209,14 @@ function fillCards(mediaArray, type) {
 		element.children[1].children[1].textContent = mediaArray[i].Plot;
 		//add link to scroll page to my list
 		element.children[2].children[0].setAttribute('href', '#my-list');
+		//add id to my list
+		element.children[2].children[0].setAttribute('id', 'my-list-card');
 		//add IMDb link to element
 		element.children[2].children[1].setAttribute('href', 'https://www.imdb.com/title/' + mediaArray[i].imdbID + '/');
 		//make link open in new tab
 		element.children[2].children[1].setAttribute('target', '_blank');
-	}
 
+	}
 }
 
 //clears cards to be filled again
@@ -224,8 +235,6 @@ function emptyCards(mediaArray, type) {
 		element.children[1].children[0].children[1].textContent = "";
 		//add short plot to element at index i
 		element.children[1].children[1].textContent = "";
-		//add link to scroll page to my list
-		element.children[2].children[0].removeAttribute('');
 		//add IMDb link to element
 		element.children[2].children[1].removeAttribute('href');
 		//make link open in new tab
@@ -236,17 +245,15 @@ function emptyCards(mediaArray, type) {
 function getPopularMoviesOf(year) {
 	getPopular("get-popular-movies", year);
 	setTimeout(function () {
-		clearArrObj();
 		fillCards(movieObjects, "movie-card-");
-	}, 1000);
+	}, 1500);
 }
 
 function getPopularShowsOf(year) {
 	getPopular("get-popular-shows", year)
 	setTimeout(function () {
-		clearArrObj();
 		fillCards(tvObjects, "tv-card-");
-	}, 1000);
+	}, 1500);
 }
 
 function clearArrObj() {
@@ -256,16 +263,16 @@ function clearArrObj() {
 		movieArray = [];
 		tvObjects = [];
 		movieObjects = [];
-	}, 800);
+	}, 1000);
 }
 
 
 function getfromlocalStorage() {
 	var varMediaArray = JSON.parse(localStorage.getItem("myMediaList"));
-	if (varMediaArray === null){
+	if (varMediaArray === null) {
 		return;
 	}
-	for (i=0;i<varMediaArray.length;i++){
+	for (i = 0; i < varMediaArray.length; i++) {
 		var card = makeCard(varMediaArray[i]);
 		$("#mylist-container").append(card);
 	}
@@ -280,7 +287,7 @@ getPopularShowsOf(2021);
 
 $("#submit").on('click', function (e) {
 	e.preventDefault();
-
+	clearArrObj();
 	//get inner text of input field
 	var textInput = $(".input").val();
 	console.log(textInput);
@@ -312,6 +319,27 @@ $("#submit").on('click', function (e) {
 	$(".input").val('');
 });
 
+setTimeout(function () {
+	document.querySelectorAll("#my-list-card").forEach(item => {
+		item.addEventListener("click", event => {
+			var favTitle = event.target.parentNode.parentNode.children[1].children[0].children[0].innerText;
+			console.log(event.target.parentNode.parentNode.children[1].children[0].children[0].innerText);
+			var allMedia = tvObjects.concat(movieObjects);
+
+			for (var i = 0; i < allMedia.length; i++) {
+				console.log(allMedia[i]);
+				console.log(allMedia[i].Title);
+				if (allMedia[i].Title === favTitle) {
+					storeToLocalStorage(allMedia[i]);
+					console.log(allMedia[i]);
+					$("#mylist-container").append(makeCard(allMedia[i]));
+				}
+			}
+		})
+	});
+
+}, 2000)
+
 // Hamburger menu in main nav
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -336,4 +364,5 @@ document.addEventListener('DOMContentLoaded', () => {
 			});
 		});
 	}
+
 });
