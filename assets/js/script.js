@@ -77,8 +77,6 @@ function getMediaInfo(imdbID) {
 				//console.log(data);
 				movieObjects.push(data);
 				//console.log(movieObjects);
-
-
 			}
 			//condition if media type is a series
 			else if (data.Type === "series") {
@@ -108,6 +106,7 @@ function storeToLocalStorage(obj) {
 		//when there are repeat titles
 		if (isRepeat) {
 			//modal to tell user that the item has been saved already
+			swal("Oh No!", "Looks like this item is already on your list.", "info")
 		}
 		//when there are no repeat titles
 		else {
@@ -124,7 +123,8 @@ function storeToLocalStorage(obj) {
 
 //fill card elements by type {movie-card- , tv-card- }
 function fillCards(mediaArray, type) {
-
+	
+	emptyCards(mediaArray, type);
 	//for loop that iterates through the mediaArray
 	for (var i = 0; i < mediaArray.length; i++) {
 		//get element by card id
@@ -146,22 +146,94 @@ function fillCards(mediaArray, type) {
 		//make link open in new tab
 		element.children[2].children[1].setAttribute('target', '_blank');
 	}
+
+}
+
+//clears cards to be filled again
+function emptyCards(mediaArray,type){
+	//for loop that iterates through the mediaArray
+	for (var i = 0; i < mediaArray.length; i++) {
+		//get element by card id
+		var element = document.getElementById(type + i);
+		//add media poster to element at index i
+		element.children[0].children[0].children[0].removeAttribute('src');
+		//add alt description to image
+		element.children[0].children[0].children[0].removeAttribute('alt', "");
+		//add title to element at index i
+		element.children[1].children[0].children[0].textContent = "";
+		//add release date to element at index i
+		element.children[1].children[0].children[1].textContent = "";
+		//add short plot to element at index i
+		element.children[1].children[1].textContent = "";
+		//add link to scroll page to my list
+		element.children[2].children[0].removeAttribute('');
+		//add IMDb link to element
+		element.children[2].children[1].removeAttribute('href');
+		//make link open in new tab
+		element.children[2].children[1].removeAttribute('target');
+	}
 }
 
 function getPopularMoviesOf(year) {
 	getPopular("get-popular-movies", year);
 	setTimeout(function () {
-		fillCards(movieObjects, "movie-card-")
-	}, 200);
+		clearArrObj();
+		fillCards(movieObjects, "movie-card-");
+	}, 1000);
 }
 
 function getPopularShowsOf(year) {
 	getPopular("get-popular-shows", year)
 	setTimeout(function () {
-		fillCards(tvObjects, "tv-card-")
-	}, 200);
+		clearArrObj();
+		fillCards(tvObjects, "tv-card-");
+	}, 1000);
+}
+
+function clearArrObj() {
+	setTimeout(function () {
+		//clear arrays and objects
+		tvArray = [];
+		movieArray = [];
+		tvObjects = [];
+		movieObjects = [];
+	}, 800);
 }
 
 getPopularMoviesOf(2021);
 getPopularShowsOf(2021);
 
+
+$("#submit").on('click', function (e) {
+	e.preventDefault();
+
+	//get inner text of input field
+	var textInput = $(".input").val();
+	console.log(textInput);
+
+	//get media type selection
+	var mediaType = $("select").find(":selected").text();
+	console.log(mediaType);
+
+	if (textInput.length === 4 && textInput > 1920) {
+		if (mediaType === "All") {
+			//get media
+			getPopularMoviesOf(textInput);
+			getPopularShowsOf(textInput);
+			Pace.restart();
+		} else if (mediaType === "TV Shows") {
+			//get media
+			getPopularShowsOf(textInput);
+			Pace.restart();
+		} else {
+			//get media
+			getPopularMoviesOf(textInput);
+			Pace.restart();
+		}
+
+	} else {
+		swal("Oops!", "Invalid Year! Try Again!", "error");
+	}
+
+	$(".input").val('');
+});
