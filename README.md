@@ -5,14 +5,18 @@ The Nostalgia Generator is a Javascript-based web application that allows users 
 ## Deployed Application
 [Click here to check the Nostalgia Generator.](https://sahhollingsworth.github.io/nostalgia-generator/ "link to the Nostalgia Generator web application")
 
-![Image](PATHTOLOCALGIFORIMAGEFILE "screenshot of web Nostalgia Generator application")
+![Image](./assets/images/nostalgia-generator_screenshot.png "screenshot of web Nostalgia Generator application")
 
 ## Summary
 The Nostalgia Generator is a web application that allows user to enter a year value and media type to receive a carousel of the most popular movies and tv shows for any given year. Each movie or tv show is presented with a poster, description, and release date. For any item, the user can choose to see more information about it and be redirected to IMDB.com or save it to their list to revisit at a later date.
 
 should note that it's build on javascript using Pace for loading elements and SweetAlert for alert elements. Using minimal custom CSS and instead leverage Bulma framework so Nostalgia Generator is a dynamic, mobile first web application.
 
+[Walkthrough of app development details](https://docs.google.com/presentation/d/1TSzjUfo8YNB_hXrAkpGvDFMkXpFUUqa8xXrjsFbQFSI/edit?usp=sharing "Link to Nostalgia Generator development walkthrough")
+
 ## Future Developement
+* Handle slow API responses or find alternate resources
+* Add ability to remove cards from my list
 * Handle non-200 API responses, update user
 * Dynamic creation of media cards via javascript
 * Support adding Book results to a user’s Google Books list directly from the app. Requires Google OAuth implementation
