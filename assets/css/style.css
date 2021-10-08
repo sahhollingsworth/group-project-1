@@ -20,3 +20,7 @@ h1 {
     font-size: large;
     padding-right: 1.25rem;
 }
+
+#my-list .card {
+    width: 295px;
+}
