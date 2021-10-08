@@ -22,12 +22,12 @@ bulmaCarousel.attach('#carousel', {
 //type={get-popular-movies, get-popular-shows}
 function getPopular(type, year) {
 	fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=" + type + "&page=1&year=" + year, {
-			"method": "GET",
-			"headers": {
-				"x-rapidapi-host": "movies-tvshows-data-imdb.p.rapidapi.com",
-				"x-rapidapi-key": "1acff560dfmshb97c3c2facb502cp19f4b7jsn8e70140c970f"
-			}
-		})
+		"method": "GET",
+		"headers": {
+			"x-rapidapi-host": "movies-tvshows-data-imdb.p.rapidapi.com",
+			"x-rapidapi-key": "1acff560dfmshb97c3c2facb502cp19f4b7jsn8e70140c970f"
+		}
+	})
 		.then(response => {
 			console.log(response);
 			return response.json();
@@ -123,7 +123,7 @@ function storeToLocalStorage(obj) {
 
 //fill card elements by type {movie-card- , tv-card- }
 function fillCards(mediaArray, type) {
-	
+
 	emptyCards(mediaArray, type);
 	//for loop that iterates through the mediaArray
 	for (var i = 0; i < mediaArray.length; i++) {
@@ -150,7 +150,7 @@ function fillCards(mediaArray, type) {
 }
 
 //clears cards to be filled again
-function emptyCards(mediaArray,type){
+function emptyCards(mediaArray, type) {
 	//for loop that iterates through the mediaArray
 	for (var i = 0; i < mediaArray.length; i++) {
 		//get element by card id
@@ -236,4 +236,31 @@ $("#submit").on('click', function (e) {
 	}
 
 	$(".input").val('');
+});
+
+// Hamburger menu in main nav
+document.addEventListener('DOMContentLoaded', () => {
+
+	// Get all "navbar-burger" elements
+	const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+	// Check if there are any navbar burgers
+	if ($navbarBurgers.length > 0) {
+
+		// Add a click event on each of them
+		$navbarBurgers.forEach(el => {
+			el.addEventListener('click', () => {
+
+				// Get the target from the "data-target" attribute
+				const target = el.dataset.target;
+				const $target = document.getElementById(target);
+
+				// Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+				el.classList.toggle('is-active');
+				$target.classList.toggle('is-active');
+
+			});
+		});
+	}
+
 });
