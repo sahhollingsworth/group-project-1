@@ -121,7 +121,62 @@ function storeToLocalStorage(obj) {
 }
 
 //storeToLocalStorage({title:"wee", released: "2021"});
+//create a card element and return it
+function makeCard(mediaObj){
+    //make <div> with class card
+    var card = $("<div>").addClass("card");
+    
+    //make <div> for card img
+    var cardImage = $("<div>").addClass("card-image").attr("id", "poster");
+    //make <figure> for cardImage
+    var figureImage = $("<figure>").addClass("image");
+    //make <img> element with url and alt, gets movieObjects[index].Poster
+    var imgElement = $("<img>").attr("src", mediaObj.Poster).attr("alt", "Poster of " + mediaObj.Title);
 
+    //append imgElement to figureImage
+    figureImage.append(imgElement);
+    //append figureImage to cardImage
+    cardImage.append(figureImage);
+    //append cardImage to card
+    card.append(cardImage);
+
+    //make <div> for card-content
+    var cardContent = $("<div>").addClass("card-content");
+    
+    //make <div> for content
+    var titleContent = $("<div>").addClass("content");
+    //make <p> for title
+    var title = $("<p>").addClass("title is-4").attr("id","title").text(mediaObj.Title);
+    //make <p> for subtitle
+    var releaseDate = $("<p>").addClass("subtitle is-6").attr("id", "release-date").text(mediaObj.Released);
+
+    //append title to content
+    titleContent.append(title);
+    //append releaseDate to content
+    titleContent.append(releaseDate);
+    //append titleContent to cardContent
+    cardContent.append(titleContent);
+
+    //create <div> for synopsis
+    var synopsis = $("<div>").addClass("content").attr("id", "synopsis").text(mediaObj.Plot);
+
+    //append synopsis to cardContent
+    cardContent.append(synopsis);
+    //append cardContent to card
+    card.append(cardContent);
+
+    //make <footer> for card-footer
+    var cardFooter = $("<footer>").addClass("card-footer");
+    //make <a> for more info
+    var moreInfo = $("<a>").addClass("card-footer-item").attr("href", "https://www.imdb.com/title/" + mediaObj.imdbID + "/").attr("target", "_blank").text("More Info");
+
+    //append moreInfo to cardFooter
+    cardFooter.append(moreInfo);
+    //append cardFooter to card
+    card.append(cardFooter);
+
+    return card;
+}
 //fill card elements by type {movie-card- , tv-card- }
 function fillCards(mediaArray, type) {
 
@@ -161,6 +216,21 @@ function getPopularShowsOf(year) {
 		fillCards(tvObjects, "tv-card-")
 	}, 200);
 }
+
+
+function getfromlocalStorage() {
+	var varMediaArray = JSON.parse(localStorage.getItem("myMediaList"));
+	if (varMediaArray === null){
+		return;
+	}
+	for (i=0;i<varMediaArray.length;i++){
+		var card = makeCard(varMediaArray[i]);
+		$("#mylist-container").append(card);
+	}
+
+}
+
+
 
 getPopularMoviesOf(2021);
 getPopularShowsOf(2021);
