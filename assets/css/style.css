@@ -20,3 +20,20 @@ h1 {
     font-size: large;
     padding-right: 1.25rem;
 }
+
+/* Carousel and child element styling */
+/* Hides all carousel cards not currently being viewed, # defined in js script  */
+.carousel {
+    overflow: hidden;
+}
+
+.card {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-footer-item {
+    font-weight: bold;
+    color: #00C4A7;
+}
