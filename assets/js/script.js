@@ -13,9 +13,13 @@ var tvObjects = [];
 
 // Carousel for media results sections
 bulmaCarousel.attach('#carousel', {
+	// Hitting navigation arrow shifts 1 new slide into view
 	slidesToScroll: 1,
+	// Count slides displayed concurrently in carousel
 	slidesToShow: 4,
+	// Display navigation arrow buttons on left and right 
 	navigation: true,
+	// Animation to indicate when user navs from last card to first card
 	loop: true,
 });
 
@@ -262,5 +266,4 @@ document.addEventListener('DOMContentLoaded', () => {
 			});
 		});
 	}
-
 });

@@ -20,3 +20,8 @@ h1 {
     font-size: large;
     padding-right: 1.25rem;
 }
+
+/* Hides all carousel cards not currently being viewed, # defined in js script  */
+.carousel {
+    overflow: hidden;
+}
